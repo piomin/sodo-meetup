@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sodo-meetup
+  title: sodo-meetup
+  annotations:
+    janus-idp.io/tekton: sodo-meetup
+    tektonci/build-namespace: demo
+    github.com/project-slug: piomin/sodo-meetup
+    sonarqube.org/project-key: piomin_sodo-meetup
+    backstage.io/kubernetes-id: sodo-meetup
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: sodo-meetup
+    prometheus.io/rule: container_memory_usage_bytes{pod=~"sodo-meetup-.*"}|pod,rate(container_cpu_usage_seconds_total{pod=~"sodo-meetup-.*"}[5m])|pod
+  tags:
+    - spring-boot
+    - java
+    - maven
+    - tekton
+    - argocd
+    - renovate
+    - sonarqube
+spec:
+  type: service
+  owner: piomin
+  lifecycle: experimental
